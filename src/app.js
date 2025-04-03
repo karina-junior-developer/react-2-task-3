@@ -46,10 +46,16 @@ export const App = () => {
 
 	const onClickPlus = () => {
 		setOperator('+');
+		if (isResultVisible) {
+			setIsResultVisible(false);
+		}
 	};
 
 	const onClickMinus = () => {
 		setOperator('-');
+		if (isResultVisible) {
+			setIsResultVisible(false);
+		}
 	};
 
 	const onClickIs = () => {
