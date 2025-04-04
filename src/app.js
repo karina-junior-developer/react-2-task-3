@@ -8,30 +8,14 @@ export const App = () => {
 	const [isResultVisible, setIsResultVisible] = useState(false);
 
 	const onClickNumber = (num) => {
-		if (num === '0') {
-			if (!operand1 && !operator) {
-				setOperand1('0');
-			} else if (operator && !operand2) {
-				setOperand2('0');
-			} else if (operand1 !== '0' && !operator) {
-				setOperand1(operand1 + '0');
-			} else if (operand2 !== '0' && operator) {
-				setOperand2(operand2 + '0');
-			}
-		} else {
-			if (operand1 === '0' && !operator) {
-				setOperand1('0');
-			} else if (operand2 === '0' && operator) {
-				setOperand2('0');
-			} else if (!operator) {
-				setOperand1(operand1 + num);
-			} else {
-				setOperand2(operand2 + num);
-			}
-		}
-
 		if (isResultVisible) {
 			setIsResultVisible(false);
+		}
+
+		if (!operator) {
+			setOperand1(operand1 === '0' ? num : operand1 + num);
+		} else {
+			setOperand2(operand2 === '0' ? num : operand2 + num);
 		}
 	};
 
